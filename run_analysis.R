@@ -19,14 +19,7 @@
 # please refer to the Readme.md file.
 
 
-
-# TO DO
-# find a better way for sorting such that row numbers are re-ordered
-# see marque page in firefox ....
-
-
-
-# Read the data, defining variables names
+# Reading of the source data into test and training dataframes
 features.names <- read.table("./UCI HAR Dataset/features.txt", stringsAsFactors = FALSE,
                              check.names = FALSE, col.names = c("feature id","feature name"))
 activity.label  <- read.table("./UCI HAR Dataset/activity_labels.txt",
@@ -51,11 +44,11 @@ test.data     <- read.table("./UCI HAR Dataset/test/X_test.txt",
 training      <- cbind(training.subject,training.activity,training.data)
 test          <- cbind(test.subject,test.activity,test.data)
 
-# Merge the two datasets. Sort by Subject and ACtivity
+# Merging of test and training datasets (also sorts by Subject and activity)
 merged.data <- rbind(training,test)
 merged.data <- merged.data[order(merged.data$Subject,merged.data$Activity),]
 
-# Extracts measurements on the mean and standard deviation
+# Restriction to 'mean' and 'std' features
 mean.or.std.features <- grep("mean|std",features.names[,2], value = TRUE)
 mean.and.std.data     <- merged.data[,c("Subject","Activity",mean.or.std.features)]
 
@@ -65,8 +58,7 @@ mean.and.std.data$Activity <- factor(mean.and.std.data$Activity,
                                      levels = activity.label[,1],
                                      labels = activity.label[,2])
 
-# Creates a second, independent tidy data set with the average of each variable
-# for each activity and each subject
+# creation of the tidy dataset 'averaged.data'
 
 averaged.data <- aggregate(. ~ Subject + Activity,mean.and.std.data, mean)
 averaged.data <- averaged.data[order(averaged.data$Subject,averaged.data$Activity),]
