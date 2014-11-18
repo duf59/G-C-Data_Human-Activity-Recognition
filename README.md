@@ -15,9 +15,8 @@ The data used for this project are data collected from the accelerometers from t
 
 The R script does not include code to download the source data. The latter are described and can be obtained [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). They can also be downloaded directly from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip).
 
-** For the `run_analysis.R` script to run properly, data have to be downloaded and extracted to a folder named "UCI HAR Dataset" within R's working directory.**
+* For the `run_analysis.R` script to run properly, data have to be downloaded and extracted to a folder named "UCI HAR Dataset" within R's working directory.*
 
-## Remarks
+## Notes
 
 * The script only uses the base R package
-* For consistency with the original data description, variables labels have not been renames (although some contain '(', ')' or '-' characters)

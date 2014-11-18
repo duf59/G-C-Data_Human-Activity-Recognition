@@ -1,7 +1,7 @@
 # run_analysis.R
 #
-# Author    : Rduf59
-# Date      : November, 16, 2014
+# Author    : duf59
+# Date      : November, 18, 2014
 # R version : R-3.1.1
 #
 # This script was developped for the course project of "Getting and Cleaning data"
