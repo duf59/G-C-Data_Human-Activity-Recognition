@@ -7,9 +7,9 @@ The data used for this project are data collected from the accelerometers from t
 
 ## Content
 
-* `run_analysis.R`: the R script
-* `Readme.md`: the actual readme file
-* `CodeBook.md`: the code book describing the variables, data and transformations performed to obtain a tidy dataset
+* `run_analysis.R`: the main script performing the analysis
+* `Readme.md`
+* `CodeBook.md`: describes data transformation and content of the tidy dataset generated
 
 ## Pre-requisite
 
@@ -20,3 +20,8 @@ The R script does not include code to download the source data. The latter are d
 ## Notes
 
 * The script only uses the base R package
+* After running `run_analysis.R`, the tidy dataset is written to a text file `tidy.txt`. To read and display the dataset, use the following commands :
+```
+data <- read.table("tidy.txt", header = TRUE, check.names = FALSE)
+View(data)
+```
